@@ -9,7 +9,6 @@ import com.uogames.foodiestest.domain.usecase.GetCurrentPriceUseCase
 import com.uogames.foodiestest.domain.usecase.GetItemByID
 import com.uogames.foodiestest.domain.usecase.GetMenuUseCase
 import com.uogames.foodiestest.domain.usecase.UpdateMenuUseCase
-import com.uogames.foodiestest.util.Config
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

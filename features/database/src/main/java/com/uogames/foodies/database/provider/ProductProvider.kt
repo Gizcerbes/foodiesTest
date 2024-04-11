@@ -1,7 +1,5 @@
 package com.uogames.foodies.database.provider
 
-import androidx.room.Query
-import androidx.sqlite.db.SupportSQLiteQueryBuilder
 import com.uogames.foodies.database.dao.ProductDAO
 import com.uogames.foodies.database.entity.ProductEntity
 

@@ -1,6 +1,5 @@
 package com.uogames.foodiestest.data.provider.network
 
-import android.util.Log
 import com.uogames.foodiestest.data.provider.network.map.CategoryMap.mapToModel
 import com.uogames.foodiestest.data.provider.network.map.ProductMap.mapToModel
 import com.uogames.foodiestest.domain.model.Category

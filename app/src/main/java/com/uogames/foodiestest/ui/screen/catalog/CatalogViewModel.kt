@@ -1,6 +1,5 @@
 package com.uogames.foodiestest.ui.screen.catalog
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.uogames.foodiestest.domain.model.Category
@@ -11,7 +10,6 @@ import com.uogames.foodiestest.domain.usecase.AddToCartUseCase
 import com.uogames.foodiestest.domain.usecase.GetCategoryListUseCase
 import com.uogames.foodiestest.domain.usecase.GetCurrentPriceUseCase
 import com.uogames.foodiestest.domain.usecase.GetMenuUseCase
-import com.uogames.foodiestest.domain.usecase.UpdateMenuUseCase
 import com.uogames.foodiestest.util.setOpposite
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -48,9 +46,6 @@ class CatalogViewModel @Inject constructor(
 	val filters = _filters.asStateFlow()
 
 	val filterCount = searchText.combine(_filters) { f, s -> s.size + if (f.isNotEmpty()) 1 else 0 }
-
-	private val _status = MutableStateFlow<LoadState>(LoadState.Loading)
-	val status = _status.asStateFlow()
 
 	private val _searchedFlow = searchText
 		.combine(selectedCategory) { _, _ -> true }

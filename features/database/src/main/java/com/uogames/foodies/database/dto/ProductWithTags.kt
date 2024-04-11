@@ -1,7 +1,6 @@
 package com.uogames.foodies.database.dto
 
 import androidx.room.Embedded
-import androidx.room.Entity
 import androidx.room.Relation
 import com.uogames.foodies.database.entity.ProductAndTagEntity
 import com.uogames.foodies.database.entity.ProductEntity

@@ -8,7 +8,6 @@ import com.uogames.foodies.database.dao.CartDAO
 import com.uogames.foodies.database.dao.CategoryDAO
 import com.uogames.foodies.database.dao.ProductAndTagDAO
 import com.uogames.foodies.database.dao.ProductDAO
-import com.uogames.foodies.database.dto.ProductWithTags
 import com.uogames.foodies.database.entity.CategoryEntity
 import com.uogames.foodies.database.entity.CartEntity
 import com.uogames.foodies.database.entity.ProductAndTagEntity

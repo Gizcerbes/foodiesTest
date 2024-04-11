@@ -8,8 +8,6 @@ import androidx.room.Query
 import com.uogames.foodies.database.dto.CartWithProduct
 import com.uogames.foodies.database.entity.CartEntity
 import kotlinx.coroutines.flow.Flow
-import java.math.BigDecimal
-import java.math.BigInteger
 
 @Dao
 interface CartDAO {

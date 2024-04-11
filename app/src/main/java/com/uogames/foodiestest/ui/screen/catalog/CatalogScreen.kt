@@ -55,7 +55,7 @@ import com.uogames.foodiestest.ui.component.TopLine
 import com.uogames.foodiestest.ui.component.TopLineSearch
 import com.uogames.foodiestest.ui.theme.StatusBarHelper
 import com.uogames.foodiestest.ui.theme.TEXT_COLOR_NEGATIVE
-import com.uogames.foodiestest.ui.theme.TRANSPARENT_25
+import com.uogames.foodiestest.ui.theme.TRANSPARENT_30
 import com.uogames.foodiestest.util.ColorHelper
 import com.uogames.foodiestest.util.Navigator
 import com.uogames.foodiestest.util.pxToDp
@@ -303,7 +303,7 @@ object CatalogScreen {
 	) {
 		var cupButtonHeight by remember { mutableIntStateOf(Int.MAX_VALUE) }
 		val percentPriceAnimator by animateFloatAsState(
-			targetValue = if (currentPrice.toFloat() > 0) 1f else 0f,
+			targetValue = if (currentPrice > 0) 1f else 0f,
 			label = "",
 			animationSpec = tween(durationMillis = 200)
 		)
@@ -338,7 +338,7 @@ object CatalogScreen {
 		if (percentFilterAnimator != 0f) Box(modifier = Modifier
 			.fillMaxSize()
 			.alpha(percentFilterAnimator)
-			.background(TRANSPARENT_25)
+			.background(TRANSPARENT_30)
 			.clickable(indication = null, interactionSource = interactionSource) { vm.isFiltering.setOpposite() })
 
 		val background = ColorHelper.gradient(Color.White.toArgb(), Color.Black.toArgb(), percentFilterAnimator * 0.3f)

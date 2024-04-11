@@ -11,8 +11,6 @@ class CartProvider(
 
 	suspend fun clear() = dao.clear()
 
-	fun getListFlow() = dao.getListFlow()
-
 	fun getListWithProductFlow() = dao.getListWithProductFlow()
 
 	fun getCurrentPriceFlow() = dao.getCurrentPriceFlow()
