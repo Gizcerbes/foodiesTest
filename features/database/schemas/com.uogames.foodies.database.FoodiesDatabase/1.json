@@ -1,0 +1,221 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "03e34c1f7a2eb37b40ae44aa8dbd381d",
+    "entities": [
+      {
+        "tableName": "category_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `category_name` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "category_name",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "product_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `category_id` INTEGER NOT NULL, `product_name` TEXT NOT NULL, `description` TEXT NOT NULL, `image_name` TEXT NOT NULL, `price_current` REAL NOT NULL, `price_old` REAL, `measure` INTEGER NOT NULL, `measure_unit` TEXT NOT NULL, `energy_per_100_grams` REAL NOT NULL, `proteins_per_100_grams` REAL NOT NULL, `fats_per_100_grams` REAL NOT NULL, `carbohydrates_per_100_grams` REAL NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`category_id`) REFERENCES `category_table`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "categoryID",
+            "columnName": "category_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "product_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imageName",
+            "columnName": "image_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "priceCurrent",
+            "columnName": "price_current",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "priceOld",
+            "columnName": "price_old",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "measure",
+            "columnName": "measure",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "measureUnit",
+            "columnName": "measure_unit",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "energyPer100Grams",
+            "columnName": "energy_per_100_grams",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "proteinsPer100Grams",
+            "columnName": "proteins_per_100_grams",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fatsPer100Grams",
+            "columnName": "fats_per_100_grams",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "carbohydratesPer100Grams",
+            "columnName": "carbohydrates_per_100_grams",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "category_table",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "category_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "cart_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`product_id` INTEGER NOT NULL, `count` INTEGER NOT NULL, PRIMARY KEY(`product_id`), FOREIGN KEY(`product_id`) REFERENCES `product_table`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "productID",
+            "columnName": "product_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "count",
+            "columnName": "count",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "product_id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "product_table",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "product_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "product_and_tag_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`product_id` INTEGER NOT NULL, `tag_id` INTEGER NOT NULL, PRIMARY KEY(`product_id`, `tag_id`), FOREIGN KEY(`product_id`) REFERENCES `product_table`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "productID",
+            "columnName": "product_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tagID",
+            "columnName": "tag_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "product_id",
+            "tag_id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "product_table",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "product_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '03e34c1f7a2eb37b40ae44aa8dbd381d')"
+    ]
+  }
+}

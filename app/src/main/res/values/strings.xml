@@ -1,0 +1,28 @@
+<resources>
+	<string name="app_name">FoodiesTest</string>
+	<string name="filter">Filter</string>
+	<string name="logo" translatable="false">Logo</string>
+	<string name="search">Search</string>
+	<string name="default_type" translatable="false">Default</string>
+	<string name="newest">Newest</string>
+	<string name="spicy">Spicy</string>
+	<string name="vegetarian">Vegetarian</string>
+	<string name="hit">Hit</string>
+	<string name="express">Express</string>
+	<string name="find_a_dish">Find a dish</string>
+	<string name="ready">Ready</string>
+	<string name="weight">Weight</string>
+	<string name="energy_value">Energy value</string>
+	<string name="kcal">kcal</string>
+	<string name="grams">gr</string>
+	<string name="proteins">Proteins</string>
+	<string name="fats">Fats</string>
+	<string name="carbohydrates">Carbohydrates</string>
+	<string name="add_to_cart">Add to cart</string>
+	<string name="cart">Cart</string>
+	<string name="order_for">Order for</string>
+	<string name="found_nothing">Found nothing</string>
+	<string name="there_are_no_such_dishes_try_changing_filters">There are no such dishes :( Try changing filters</string>
+	<string name="empty_select_a_dish_from_the_catalogue">Empty. Select a dish from the catalogue.</string>
+	<string name="select_dishes">Select dishes</string>
+</resources>

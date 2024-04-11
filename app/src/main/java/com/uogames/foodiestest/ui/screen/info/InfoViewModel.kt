@@ -1,0 +1,43 @@
+package com.uogames.foodiestest.ui.screen.info
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.uogames.foodiestest.domain.model.FoodItem
+import com.uogames.foodiestest.domain.usecase.AddToCartUseCase
+import com.uogames.foodiestest.domain.usecase.GetItemByID
+import com.uogames.foodiestest.util.TestItems
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+@HiltViewModel
+class InfoViewModel @Inject constructor(
+	getItemByID: GetItemByID,
+	private val addToCartUseCase: AddToCartUseCase
+) : ViewModel() {
+
+	val foodItemID = MutableStateFlow(0)
+
+	private val _foodItem = foodItemID.flatMapLatest { getItemByID.getItemByID(it) }
+	val foodItem = _foodItem.stateIn(viewModelScope, SharingStarted.WhileSubscribed(), null)
+
+	private val _inCart = MutableStateFlow(false)
+	val inCart = foodItem.map { (it?.count ?: 0) > 0 }
+
+
+	fun addToCart() {
+		viewModelScope.launch {
+			val item = foodItem.value ?: return@launch
+			addToCartUseCase.addToCart(item.copy(count = 1))
+		}
+	}
+
+
+}
