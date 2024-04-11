@@ -51,6 +51,10 @@ android {
 	}
 }
 
+tasks.register("version") {
+	println(android.defaultConfig.versionName)
+}
+
 dependencies {
 
 	implementation(project(":features:database"))
