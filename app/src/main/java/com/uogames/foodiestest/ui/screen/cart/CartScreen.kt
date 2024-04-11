@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -94,6 +95,7 @@ object CartScreen {
 							onCount = { count -> vm.changePrice(items[it], count) },
 							buttonColor = MaterialTheme.colorScheme.surface
 						)
+						HorizontalDivider()
 					}
 				}
 			}
