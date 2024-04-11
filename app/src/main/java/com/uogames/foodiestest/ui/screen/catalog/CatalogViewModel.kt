@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.uogames.foodiestest.domain.model.Category
 import com.uogames.foodiestest.domain.model.FoodItem
-import com.uogames.foodiestest.domain.model.LoadState
 import com.uogames.foodiestest.domain.model.PriceTag
 import com.uogames.foodiestest.domain.usecase.AddToCartUseCase
 import com.uogames.foodiestest.domain.usecase.GetCategoryListUseCase

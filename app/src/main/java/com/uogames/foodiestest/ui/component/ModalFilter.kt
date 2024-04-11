@@ -1,5 +1,6 @@
 package com.uogames.foodiestest.ui.component
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -25,6 +26,7 @@ import com.uogames.foodiestest.ui.theme.TEXT_COLOR_NEGATIVE
 object ModalFilter {
 
 
+	@SuppressLint("MutableCollectionMutableState")
 	@Composable
 	fun Show(
 		filterList: List<PriceTag>,

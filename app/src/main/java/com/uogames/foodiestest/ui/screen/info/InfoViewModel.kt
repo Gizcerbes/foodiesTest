@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.uogames.foodiestest.domain.usecase.AddToCartUseCase
 import com.uogames.foodiestest.domain.usecase.GetItemByID
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.flatMapLatest
@@ -21,10 +22,10 @@ class InfoViewModel @Inject constructor(
 
 	val foodItemID = MutableStateFlow(0)
 
+	@OptIn(ExperimentalCoroutinesApi::class)
 	private val _foodItem = foodItemID.flatMapLatest { getItemByID.getItemByID(it) }
 	val foodItem = _foodItem.stateIn(viewModelScope, SharingStarted.WhileSubscribed(), null)
 
-	private val _inCart = MutableStateFlow(false)
 	val inCart = foodItem.map { (it?.count ?: 0) > 0 }
 
 

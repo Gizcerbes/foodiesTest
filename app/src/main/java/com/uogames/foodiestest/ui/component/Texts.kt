@@ -111,19 +111,7 @@ object Texts {
 		)
 	}
 
-	@Composable
-	fun TextBody1PrimarySemiBold(
-		text: String,
-		modifier: Modifier = Modifier
-	) {
-		Text(
-			text = text,
-			modifier = modifier,
-			fontSize = 18.sp,
-			fontWeight = FontWeight.SemiBold,
-			color = TEXT_COLOR
-		)
-	}
+
 
 	@Composable
 	fun TextBody2SecondCrossed(
