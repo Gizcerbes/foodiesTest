@@ -25,7 +25,7 @@ jobs:
         run: ./gradlew clean
 
       - name: Build bundle apk
-        run: ./gradlew buildDebug
+        run: ./gradlew assembleDebug
 
       - name: Get Version
         id: tag
